@@ -14,6 +14,70 @@ export type Database = {
   }
   public: {
     Tables: {
+      energy_balances: {
+        Row: {
+          balance_int: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          balance_int?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          balance_int?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "energy_balances_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      energy_ledger: {
+        Row: {
+          created_at: string
+          delta_int: number
+          id: number
+          reason: string
+          stripe_event_id: string | null
+          stripe_payment_intent_id: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          delta_int: number
+          id?: number
+          reason: string
+          stripe_event_id?: string | null
+          stripe_payment_intent_id?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          delta_int?: number
+          id?: number
+          reason?: string
+          stripe_event_id?: string | null
+          stripe_payment_intent_id?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "energy_ledger_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
       essay_requests: {
         Row: {
           additional_comments: string | null
