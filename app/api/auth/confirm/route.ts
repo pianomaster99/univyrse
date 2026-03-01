@@ -6,14 +6,15 @@ export const runtime = "nodejs";
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const token_hash = url.searchParams.get("token_hash");
-  const type = url.searchParams.get("type"); // "signup" | "recovery" | etc
+
+  // Supabase email confirm commonly uses type=email. Password recovery uses type=recovery.
+  const type = url.searchParams.get("type") ?? "email";
+
   const next = url.searchParams.get("next") ?? "/dashboard";
 
-  if (!token_hash || !type) {
+  if (!token_hash) {
     return NextResponse.redirect(
-      `${url.origin}/auth/error?message=${encodeURIComponent(
-        "Missing token_hash or type"
-      )}`
+      `${url.origin}/auth/error?message=${encodeURIComponent("Missing token_hash")}`
     );
   }
 
