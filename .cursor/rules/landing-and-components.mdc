@@ -1,0 +1,15 @@
+---
+description: Landing page and UI; use components only, no new or fake backends
+globs: "app/**/*.tsx"
+alwaysApply: false
+---
+
+# Landing Page and Components
+
+- **Use components**: Build the landing and other UI from reusable components (e.g. Button, Card, Badge, sections). Do not inline large blocks of JSX in the page.
+- **No backends that don't exist**: Do not call or create API routes, server actions, or backend services that are not already in the project. Use hardcoded or local state only for landing/marketing content.
+- **No new backends**: Do not add new backend features, API routes, or server-side logic for this work. Keep changes to frontend components and pages only.
+- **Copy**: Avoid em dashes in marketing copy; use commas or rephrase instead.
+- **Region**: Messaging should reflect that Univyrse supports applicants worldwide, not only specific countries.
+- **Public site**: Do not link to a Design System page from the public website (footer, nav).
+- **Review before implementing**: Get a general understanding of the design and existing code before writing code.

@@ -1,16 +1,29 @@
-import Link from "next/link";
+import { Navbar } from "@/components/Navbar";
+import { HeroKolly } from "@/components/HeroKolly";
+import { WhyUseUnivyrse } from "@/components/WhyUseUnivyrse";
+import { HowItWorks } from "@/components/HowItWorks";
+import { RegionModes } from "@/components/RegionModes";
+import { DemoStrip } from "@/components/DemoStrip";
+import { FAQ } from "@/components/FAQ";
+import { FinalCTA } from "@/components/FinalCTA";
+import { Footer } from "@/components/layout/footer";
 
 export default function HomePage() {
   return (
-    <main style={{ padding: 24, fontFamily: "system-ui" }}>
-      <h1>Univyrse (Auth Test)</h1>
-      <p>Use these links to test password auth + email confirmation.</p>
+    <div className="min-h-screen bg-white text-[#000]">
+      <Navbar />
 
-      <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
-        <Link href="/signup">Sign up</Link>
-        <Link href="/login">Log in</Link>
-        <Link href="/dashboard">Dashboard</Link>
-      </div>
-    </main>
+      <main>
+        <HeroKolly />
+        <WhyUseUnivyrse />
+        <HowItWorks />
+        <RegionModes />
+        <DemoStrip />
+        <FAQ />
+        <FinalCTA />
+      </main>
+
+      <Footer />
+    </div>
   );
 }
